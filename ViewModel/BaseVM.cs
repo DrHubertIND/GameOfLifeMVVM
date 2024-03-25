@@ -16,7 +16,7 @@ namespace GameOfLifeMVVM.ViewModel
 
         protected virtual void OnPtopertyChaged([CallerMemberName] string PropertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
         }
 
         protected virtual bool Set<T>(ref T field, T value, [CallerMemberName] string PropertyName = null)
@@ -25,6 +25,25 @@ namespace GameOfLifeMVVM.ViewModel
             field = value;
             OnPtopertyChaged(PropertyName);
             return true;
+        }
+
+        ~BaseVM()
+        {
+            Dispose(false)
+        }
+
+        private bool _Disposed;
+
+        public void Dispose()
+        {
+            Dispose(true);
+        }
+        
+        protected virtual void Dispose(bool disposing) 
+        {
+            if (!_Disposed || _Disposed) return;
+            _Disposed = true;
+            // free
         }
     }
 }
