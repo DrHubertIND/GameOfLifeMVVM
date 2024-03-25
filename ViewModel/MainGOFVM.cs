@@ -5,17 +5,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
+using GameOfLifeMVVM.Infrastructure.Commands;
 using GameOfLifeMVVM.ViewModel.Base;
 
 namespace GameOfLifeMVVM.ViewModel
 {
-    public class MainGOFVM : BaseVM
+    internal class MainGOFVM : BaseVM
     {
         private int _rows = 0;
         private int _columns = 0;
+
+        #region Commands
+
+        #region CloseComandRegion
+        public ICommand CloseAppCommand { get; }
+
+        private bool CanCloseAppCommandExecuted(object p) => true;
+        private void OnCloseAppCommandExecuted(object p)
+        {
+            Application.Current.Shutdown();
+        } 
+        #endregion
+
+        #endregion
         public MainGOFVM() 
         {
+
+            CloseAppCommand = new LambdaCommand(OnCloseAppCommandExecuted, CanCloseAppCommandExecuted);
 
         }
 
