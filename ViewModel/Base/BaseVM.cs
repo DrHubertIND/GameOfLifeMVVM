@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace GameOfLifeMVVM.ViewModel.Base
 {
-    public abstract class BaseVM : INotifyPropertyChanged
+    internal abstract class BaseVM : INotifyPropertyChanged, IDisposable
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
