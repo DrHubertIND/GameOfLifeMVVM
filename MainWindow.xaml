@@ -9,6 +9,9 @@
     <Window.DataContext>
         <vm:MainGOFVM/>
     </Window.DataContext>
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Ctrl" Key="Q" Command="{Binding CloseAppCommand}"/>
+    </Window.InputBindings>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150*"/>
@@ -33,7 +36,7 @@
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <Button Content="Start Game" FontSize="14" Foreground="Gray" Margin="3" Background="Azure">
+                <Button Content="Start Game" Command="{Binding StartGameCommand}" FontSize="14" Foreground="Gray" Margin="3" Background="Azure">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="4"/>

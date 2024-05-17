@@ -28,7 +28,7 @@ namespace GameOfLifeMVVM.Model
             }
         }
 
-        private int[,] NextGeneration()
+        public int[,] NextGeneration()
         {
             int width = grid_.GetLength(0);
             int height = grid_.GetLength(1);
@@ -91,10 +91,12 @@ namespace GameOfLifeMVVM.Model
 
             return result;
         }
-        public int[,] Grid { get 
+        public int[,] GridData {  
+            get 
             {
                 grid_ = NextGeneration();
-                return grid_;
-            } }
+                return grid_; 
+            } 
+        }
     }
 }
